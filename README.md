@@ -2,8 +2,8 @@
 
 This is a repository of a website created for an assignment, intended for learning purposes.
 
-**Assignment Detail:** COMP1073 Group Assignment
-**Created on:** 2024-12-50
+-**Assignment Detail:** COMP1073 Group Assignment
+-**Created on:** 2024-12-05
 
 ## Students Information
 
