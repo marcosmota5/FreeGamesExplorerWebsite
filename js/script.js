@@ -194,7 +194,7 @@ class Game {
                 releaseDate: game.release_date,
                 freeToGameProfileUrl: game.freetogame_profile_url,
             }));
-       
+
             // Filter the results by title if searchTitle is provided
             if (searchTitle) {
                 const lowerSearchTitle = searchTitle.toLowerCase();
@@ -326,6 +326,13 @@ document.addEventListener("DOMContentLoaded", () => {
         gameDetailPage.style.display = "none";
     });
 
+    // Add an event to the click button in order to open the menu on small screens
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+        this.classList.toggle('open');
+        document.querySelector('.overlay-menu').classList.toggle('open');
+    });
+
+
     function loadGameDetails(game) {
         document.getElementById("game-detail-name").textContent = game.title;
         document.getElementById("game-detail-description").textContent = game.description;
@@ -333,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("game-detail-platform").textContent = game.platform;
         document.getElementById("game-detail-publisher").textContent = game.publisher;
         document.getElementById("game-detail-developer").textContent = game.developer;
-        document.getElementById("game-detail-release-date").textContent = game.releaseDate;
+        document.getElementById("game-detail-release-date").textContent = game.releaseDate.toDateString();
         document.getElementById("game-detail-status").textContent = game.status;
         document.getElementById("game-detail-link").textContent = game.gameUrl;
         document.getElementById("game-detail-link").href = game.gameUrl;
@@ -373,5 +380,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     refreshButton.addEventListener("click", fetchGames);
+
     fetchGames();
 });

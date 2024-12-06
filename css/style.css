@@ -508,15 +508,35 @@ footer {
 
 */
 
-
-
-
-
-
-
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
+    
+    .game-list {
+        width: auto;
+    }
 
+    .game-detail {
+        max-height: none;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mid-part {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-part {
+        width: 100%;
+    }
+    
+    .right-part {
+        width: 100%;
+    }
+    
     .footer-menu {
         flex-direction: column;
     }
@@ -551,12 +571,6 @@ footer {
     .menu-toggle.open+.overlay-menu {
         display: block;
     }
-
-    .featured-deals {
-        align-items: center;
-        flex-direction: column;
-    }
-
     .menu-toggle span {
         font-size: 24px;
     }

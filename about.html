@@ -13,7 +13,8 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 
@@ -55,7 +56,7 @@
             <p>This is a website for an assignment and only for learning purposes.</p>
             <br>
             <p>Assignment detail: COMP1073 Group Assignment</p>
-            <p>GitHub repository: <a href="" title="GitHub Repository">Free Games Explorer Website</a></p>
+            <p>GitHub repository: <a href="https://github.com/marcosmota5/FreeGamesExplorerWebsite" title="GitHub Repository">Free Games Explorer Website</a></p>
             <br>
             <h3>Students:</h3>
             <div class="students-section">
@@ -100,10 +101,13 @@
             <br>
             <p>Thanks to the creators of the following images:</p>
             <ul>
-                <li><a href="https://www.flaticon.com/free-icons/video-game" title="video-game icons">Video-game icons created by Freepik - Flaticon</a></li>
-                <li><a href="https://www.cyberpowerpc.com/blog/the-10-most-popular-free-to-play-pc-games-to-play-in-2024/" title="free-game background">Free games background image - CyberPowerPC</a></li>
+                <li><a href="https://www.flaticon.com/free-icons/video-game" title="video-game icons">Video-game icons
+                        created by Freepik - Flaticon</a></li>
+                <li><a href="https://www.cyberpowerpc.com/blog/the-10-most-popular-free-to-play-pc-games-to-play-in-2024/"
+                        title="free-game background">Free games background image - CyberPowerPC</a></li>
             </ul>
-            <p>A big thanks to <a href="https://www.freetogame.com/" title="Free to game">FreeToGame</a> for providing the free API that is used throughout this entire website.</p>
+            <p>A big thanks to <a href="https://www.freetogame.com/" title="Free to game">FreeToGame</a> for providing
+                the free API that is used throughout this entire website.</p>
         </div>
         <!-- Page-level footer -->
         <footer>
@@ -127,7 +131,13 @@
     </main>
 
     <!-- Add the javascript file that has some scripts -->
-    <script src="scripts/scripts.js"></script>
+    <script>
+        // Add an event to the click button in order to open the menu on small screens
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            this.classList.toggle('open');
+            document.querySelector('.overlay-menu').classList.toggle('open');
+        });
+    </script>
 </body>
 
 </html>
