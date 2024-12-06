@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home | Free Games Explorer</title>
+    <meta name="author" content="" />
+    <meta name="description" content="Website to explore free games">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <!-- Page-level header -->
+    <header>
+        <nav>
+            <!-- Div that holds the logo and the company name. When clicked, it redirects to the home page -->
+            <div class="logo" onclick="window.location.href='index.html'">
+                <img src="images/favicon.png" alt="Company Logo">
+                <span class="company-name">Free Games Explorer</span>
+            </div>
+            <!-- Div that holds the options for the user to navigate through the website -->
+            <div class="options">
+                <a href="index.html"><span class="material-symbols-outlined">
+                        home
+                    </span>&nbsp;Home</a>
+                <a href="about.html"><span class="material-symbols-outlined">
+                        info
+                    </span>&nbsp;About</a>
+            </div>
+            <div class="menu-toggle">
+                <span id="menu-icon" class="material-symbols-outlined">menu</span>
+            </div>
+            <div class="overlay-menu">
+                <!-- Menu options -->
+                <a class="first" href="index.html"><span class="material-symbols-outlined">
+                        home
+                    </span>&nbsp;Home</a>
+                <a href="about.html"><span class="material-symbols-outlined">
+                        info
+                    </span>&nbsp;About</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="welcome">
+            <span class="welcome-title">Welcome to Free Games Explorer!</span>
+            <span class="welcome-subtitle">Here you can find a list of free games that you can enjoy at any time.</span>
+        </div>
+
+        <div class="main-page">
+            <div class="filters">
+                <h2>Filters</h2>
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="category">Category:</label>
+                        <select id="category" multiple></select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="platform">Platform:</label>
+                        <select id="platform"></select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-by">Sort by:</label>
+                        <select id="sort-by"></select>
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <div class="filter-group wide">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Search by name">
+                    </div>
+                    <div class="filter-group button-group">
+                        <button id="refresh-button" class="input-button">Refresh</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="game-list">
+                    <h2>Game List</h2>
+                    <ul id="games" class="game-list-content"></ul>
+                </div>
+
+                <div class="game-details">
+                    <h2>Selected Game Info</h2>
+                    <h3 id="game-title">Game Title</h3>
+                    <img id="game-thumbnail" src="images/no-image.png" alt="Game Thumbnail">
+                    <p><strong>Genre:</strong> <span id="game-genre">N/A</span></p>
+                    <p><strong>Platform:</strong> <span id="game-platform">N/A</span></p>
+                    <p><strong>Publisher:</strong> <span id="game-publisher">N/A</span></p>
+                    <p><strong>Developer:</strong> <span id="game-developer">N/A</span></p>
+                    <p><strong>Release Date:</strong> <span id="game-release-date">N/A</span></p>
+                    <p><strong>Description:</strong> <span id="game-description">N/A</span></p>
+                    <p><strong>Game Link:</strong> <a id="game-link" href="#" target="_blank">N/A</a></p>
+                    <button id="details-button" class="input-button" disabled>Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-detail" style="display: none;">
+            <div class="top-part">
+                <h2 id="game-detail-name">Game Name</h2>
+                <button id="back-button" class="input-button">Go Back</button>
+            </div>
+            <div class="mid-part">
+                <div class="left-part">
+                    <p><strong>Description:</strong> <span id="game-detail-description">N/A</span></p>
+                    <p><strong>Details</strong></p>
+                    <p><strong>Genre:</strong> <span id="game-detail-genre">N/A</span></p>
+                    <p><strong>Platform:</strong> <span id="game-detail-platform">N/A</span></p>
+                    <p><strong>Publisher:</strong> <span id="game-detail-publisher">N/A</span></p>
+                    <p><strong>Developer:</strong> <span id="game-detail-developer">N/A</span></p>
+                    <p><strong>Release Date:</strong> <span id="game-detail-release-date">N/A</span></p>
+                    <p><strong>Status:</strong> <span id="game-detail-status">N/A</span></p>
+                    <p><strong>Game Link:</strong> <a id="game-detail-link" href="#" target="_blank">N/A</a></p>
+                </div>
+                <div class="right-part">
+                    <img id="detail-thumbnail" src="images/no-image.png" alt="Game Thumbnail">
+                    <p><strong>System requirements</strong></p>
+                    <p><strong>OS:</strong> <span id="game-detail-requirements-os">N/A</span></p>
+                    <p><strong>Processor:</strong> <span id="game-detail-requirements-processor">N/A</span></p>
+                    <p><strong>Memory:</strong> <span id="game-detail-requirements-memory">N/A</span></p>
+                    <p><strong>Graphics:</strong> <span id="game-detail-requirements-graphics">N/A</span></p>
+                    <p><strong>Storage:</strong> <span id="game-detail-requirements-storage">N/A</span></p>
+                </div>
+            </div>
+            <div class="bottom-part">
+                <div class="screenshots">
+                    <h3>Screenshots</h3>
+                    <div id="screenshots-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="image-modal" style="display: none;">
+            <div class="modal-content">
+                <span id="close-modal">&times;</span>
+                <img id="modal-image" src="" alt="Screenshot">
+            </div>
+        </div>
+
+
+
+        <div class="newsletter">
+            <h2>Newsletter</h2>
+            <p>Subscribe to our newsletter to receive the last deals</p>
+            <form action="subscribe.html" method="get">
+                <label class="input-label" for="emailAddress">Email</label>
+                <input class="input-box" type="email" name="emailAddress" id="emailAddress" required />
+                <button class="input-button" type="submit">Subscribe</button>
+            </form>
+        </div>
+        <!-- Page-level footer -->
+        <footer>
+            <div class="footer-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="footer-info">
+                <span>
+                    <p>Free Games Explorer © All Rights Reserved</p>
+                </span>
+                <span>
+                    <p>Toronto, Ontario</p>
+                </span>
+                <span>
+                    <p>Phone +1 333 333 3333</p>
+                    <p>Email: contact@xxxxx.net</p>
+                </span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add the javascript file that has some scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
