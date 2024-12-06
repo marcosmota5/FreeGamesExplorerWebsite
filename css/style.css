@@ -371,8 +371,6 @@ footer {
 
 .game-detail {
     margin: 10px;
-    /* Limit the maximum width */
-    max-height: 600px;
     /* Limit the maximum height */
     overflow: hidden;
     /* Prevent content from overflowing */
@@ -397,6 +395,7 @@ footer {
 .right-part {
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
 }
 
 #detail-thumbnail {
@@ -511,12 +510,12 @@ footer {
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
     
-    .game-list {
-        width: auto;
+    #detail-thumbnail {
+        width: 100%;
     }
 
-    .game-detail {
-        max-height: none;
+    .game-list {
+        width: auto;
     }
 
     .content {
@@ -535,8 +534,9 @@ footer {
     
     .right-part {
         width: 100%;
+        margin-left: 0;
     }
-    
+
     .footer-menu {
         flex-direction: column;
     }
