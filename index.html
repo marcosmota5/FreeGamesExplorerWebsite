@@ -20,7 +20,7 @@
     <!-- Page-level header -->
     <header>
         <nav>
-            <!-- Div that holds the logo and the company name. When clicked, it redirects to the home page -->
+            <!-- Div that holds the logo and the website name. When clicked, it redirects to the home page -->
             <div class="logo" onclick="window.location.href='index.html'">
                 <img src="images/favicon.png" alt="Company Logo">
                 <span class="company-name">Free Games Explorer</span>
@@ -49,12 +49,17 @@
         </nav>
     </header>
     <main>
+        <!-- Welcome message and image -->
         <div class="welcome">
-            <span class="welcome-title">Welcome to Free Games Explorer!</span>
-            <span class="welcome-subtitle">Here you can find a list of free games that you can enjoy at any time.</span>
+            <div class="test">
+                <span class="welcome-title">Welcome to Free Games Explorer!</span>
+                <span class="welcome-subtitle">Here you can find a list of free games that you can enjoy at any
+                    time.</span>
+            </div>
         </div>
-
+        <!-- Main div -->
         <div class="main-page">
+            <!-- Filters area -->
             <div class="filters">
                 <h2>Filters</h2>
                 <div class="filter-row">
@@ -77,17 +82,18 @@
                         <input type="text" id="name" placeholder="Search by name">
                     </div>
                     <div class="filter-group button-group">
-                        <button id="refresh-button" class="input-button">Refresh</button>
+                        <button id="refresh-button" class="input-button">Search</button>
                     </div>
                 </div>
             </div>
-
+            <!-- Content area -->
             <div class="content">
+                <!-- List of the games -->
                 <div class="game-list">
                     <h2>Game List</h2>
                     <ul id="games" class="game-list-content"></ul>
                 </div>
-
+                <!-- Details of the selected game -->
                 <div class="game-details">
                     <h2>Selected Game Info</h2>
                     <h3 id="game-title">Game Title</h3>
@@ -103,7 +109,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Area that shows more detailed information of the game when the user clicks on the Details button -->
         <div class="game-detail" style="display: none;">
             <div class="top-part">
                 <h2 id="game-detail-name">Game Name</h2>
@@ -145,8 +151,6 @@
                 <img id="modal-image" src="" alt="Screenshot">
             </div>
         </div>
-
-
 
         <div class="newsletter">
             <h2>Newsletter</h2>

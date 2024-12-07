@@ -1,3 +1,4 @@
+// API constants. Here it was used the link from RapidAPI due to the need of CORS and this is provided via RapidAPI only as it's explained in the API documentation
 const API_URL = 'https://free-to-play-games-database.p.rapidapi.com/api/';
 const RAPIDAPI_KEY = '6092be9ecamsh9db44a30f6f4725p1f2b32jsn9243a6067c94';
 const RAPIDAPI_HOST = 'free-to-play-games-database.p.rapidapi.com';
@@ -213,7 +214,9 @@ class Game {
     }
 }
 
+// Event listener for when the page loads
 document.addEventListener("DOMContentLoaded", () => {
+    // Get the needed elements by its ids or classes
     const mainPage = document.querySelector(".main-page");
     const gameDetailPage = document.querySelector(".game-detail");
     const detailsButton = document.getElementById("details-button");
@@ -222,7 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("image-modal");
     const modalImage = document.getElementById("modal-image");
     const closeModal = document.getElementById("close-modal");
-
     const categorySelect = document.getElementById('category');
     const platformSelect = document.getElementById('platform');
     const sortBySelect = document.getElementById('sort-by');
@@ -230,10 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const refreshButton = document.getElementById('refresh-button');
     const gamesList = document.getElementById('games');
 
+    // Initialize the games list and the selected game id variable
     let games = [];
     let selectedGameId = null;
 
-    // Populate the dropdowns
+    // Create the arrays to populate the dropdowns
     const categoryList = [
         "2D", "3D", "Action", "Action RPG", "Anime", "Battle Royale", "Card", "Fantasy", "Fighting",
         "First Person", "Flight", "Horror", "Low Spec", "Martial Arts", "Military", "MMO", "MMOFPS",
@@ -242,14 +245,20 @@ document.addEventListener("DOMContentLoaded", () => {
         "Sports", "Strategy", "Superhero", "Survival", "Tank", "Third Person", "Top Down",
         "Tower Defense", "Turn Based", "Voxel", "Zombie"
     ];
-
     const platformList = ["", "Browser", "PC"];
     const sortByList = ["", "Alphabetical", "Release Date"];
 
+    // Populate the dropdowns with each respective list
     populateDropdown(categorySelect, categoryList);
     populateDropdown(platformSelect, platformList);
     populateDropdown(sortBySelect, sortByList);
 
+    /**
+    * Populate a drop down from an array of items.
+    *
+    * @param dropdown Dropdown to be populated.
+    * @param options Array with the options that will be populated.
+    */
     function populateDropdown(dropdown, options) {
         options.forEach(option => {
             const optElement = document.createElement("option");
@@ -259,7 +268,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Fetch games and display them
+    /**
+    * Fetch the games from the API.
+    */
     async function fetchGames() {
         const categories = Array.from(categorySelect.selectedOptions).map(opt => opt.value);
         const platform = platformSelect.value;
@@ -270,6 +281,9 @@ document.addEventListener("DOMContentLoaded", () => {
         displayGames();
     }
 
+    /**
+    * Display the games.
+    */
     function displayGames() {
         gamesList.innerHTML = '';
         games.forEach((game, index) => {
@@ -282,8 +296,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Create the selected game element
     let selectedGameElement = null;
 
+    /**
+    * Display the game details.
+    *
+    * @param index The game index.
+    * @param element The element to be used in the display.
+    */
     function displayGameDetails(index, element) {
         const game = games[index];
 
@@ -312,6 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gameLink.href = game.gameUrl;
     }
 
+    // Add the click event to the get the game id and details
     detailsButton.addEventListener("click", async () => {
         if (selectedGameId) {
             const game = await Game.getGameById(selectedGameId);
@@ -321,6 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Add the click event to go back to the main page
     backButton.addEventListener("click", () => {
         mainPage.style.display = "block";
         gameDetailPage.style.display = "none";
@@ -332,7 +355,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('.overlay-menu').classList.toggle('open');
     });
 
-
+    /**
+    * Load the game details from the API.
+    *
+    * @param game The game to be loaded.
+    */
     function loadGameDetails(game) {
         document.getElementById("game-detail-name").textContent = game.title;
         document.getElementById("game-detail-description").textContent = game.description;
@@ -364,22 +391,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /**
+    * Show the image expanded.
+    *
+    * @param imageSrc The image url to be showed.
+    */
     function showImageModal(imageSrc) {
         modalImage.src = imageSrc;
         modal.style.display = "flex";
     }
 
+    // Add the click event to close the model with the expanded image.
     closeModal.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
+    // Add the click event to close the model with the expanded image.
     window.addEventListener("click", (event) => {
         if (event.target === modal) {
             modal.style.display = "none";
         }
     });
 
+    // Add the click event to the refresh button to get the games
     refreshButton.addEventListener("click", fetchGames);
 
+    // Add the keydown event to the enter key so when the user stops typing and type enter it makes the search.
+    nameInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            fetchGames();
+        }
+    });
+    
+    // Fetch the games initially so the list show something already when the page loads
     fetchGames();
 });

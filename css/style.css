@@ -85,6 +85,14 @@ main {
     align-items: center;
 }
 
+.test {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
 .welcome-title {
     color: white;
     font-size: 2.8em;
@@ -354,10 +362,6 @@ footer {
     /* Add pointer cursor for clickable items */
 }
 
-.game-list-content li:hover {
-    background-color: #f0f0f0;
-    /* Highlight on hover */
-}
 
 .game-details {
     max-height: 600px;
@@ -429,8 +433,10 @@ footer {
 }
 
 #games li:hover {
-    background-color: #f0f0f0;
+    background-color: #e0efff;
+    color: black;
 }
+
 
 .game-details img {
     width: 200px;
